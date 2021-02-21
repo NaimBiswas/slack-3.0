@@ -48,6 +48,8 @@ const HeaderMiddleSearch = styled.div`
     color: #F2E2CE;
     padding-top: 7px;
     padding-left: 10px;
+     padding-right: 25px;
+     min-width: 60vw;
 `
 const HEaderSearchIcon = styled(SearchIcon)``
 const HeaderRightAvatar = styled(Avatar)`
@@ -83,7 +85,7 @@ justify-content: space-around;
 `
 const HeaderMiddleInput = styled.input`
     background: #181717;
-   padding-right: 25px;
+  
    border:none;
     color:#F2E2CE;
     
