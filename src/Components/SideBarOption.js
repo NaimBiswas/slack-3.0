@@ -3,10 +3,12 @@ import styled from 'styled-components'
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import { db } from '../firebase';
 import firebase from 'firebase/app';
+import { useDispatch } from 'react-redux';
+import { enterRoom } from '../features/appSlice';
 
 
 const SideBarOption = ({ Icon, Title, addChannelOption, id }) => {
-
+   const dispatch = useDispatch()
 
    const addChannel = () => {
       const ChannelName = prompt("Enter the Channel Name")
@@ -17,7 +19,11 @@ const SideBarOption = ({ Icon, Title, addChannelOption, id }) => {
       }
    }
    const selectChannel = () => {
-
+      if (id) {
+         dispatch(enterRoom({
+            roomId: id
+         }))
+      }
    }
    return (
       <>
