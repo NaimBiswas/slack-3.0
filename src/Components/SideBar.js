@@ -20,7 +20,7 @@ const SideBar = () => {
          <LeftSideBar>
 
             <HeaderTop className='pl-1 pr-1'>
-               <HeaderTopLeft className='pb-2'>
+               <HeaderTopLeft className='pb-1'>
                   <h5 className='text-white text-center pt-2 '>Naim Biswas</h5>
                   <span><FiberManualRecordIcon style={{ color: '#28a745' }} fontSize='small'></FiberManualRecordIcon> Naim Biswas</span>
                </HeaderTopLeft>
@@ -34,23 +34,6 @@ const SideBar = () => {
                <SideBarOption Icon={Drafts} Title='Save Items' />
                <SideBarOption Icon={BookmarkBorderIcon} Title='Channel Browser' />
                <SideBarOption Icon={PeopleAlt} Title='People & User Groups' />
-               <SideBarOption Icon={FileCopy} Title='File Browse' />
-               <SideBarOption Icon={FileCopy} Title='File Browse' />
-               <SideBarOption Icon={FileCopy} Title='File Browse' />
-               <SideBarOption Icon={FileCopy} Title='File Browse' />
-               <SideBarOption Icon={FileCopy} Title='File Browse' />
-               <SideBarOption Icon={FileCopy} Title='File Browse' />
-               <SideBarOption Icon={FileCopy} Title='File Browse' />
-               <SideBarOption Icon={FileCopy} Title='File Browse' />
-               <SideBarOption Icon={FileCopy} Title='File Browse' />
-               <SideBarOption Icon={FileCopy} Title='File Browse' />
-               <SideBarOption Icon={FileCopy} Title='File Browse' />
-               <SideBarOption Icon={FileCopy} Title='File Browse' />
-               <SideBarOption Icon={FileCopy} Title='File Browse' />
-               <SideBarOption Icon={FileCopy} Title='File Browse' />
-               <SideBarOption Icon={FileCopy} Title='File Browse' />
-               <SideBarOption Icon={FileCopy} Title='File Browse' />
-               <SideBarOption Icon={FileCopy} Title='File Browse' />
                <SideBarOption Icon={FileCopy} Title='File Browse' />
                <SideBarOption Icon={ExpandLess} Title='Show less' />
                <hr style={{ margin: '0', borderTop: '1px solid #333333', marginRight: '-4px' }} />
@@ -124,5 +107,7 @@ const HeaderTopRight = styled.div`
 const LeftSideBar = styled.div`
 min-height:100vh;
 background-color:#0F1A1E;
-max-width:14vw;
+max-width:15vw;
+position:absolute;
+top:0;
 `
