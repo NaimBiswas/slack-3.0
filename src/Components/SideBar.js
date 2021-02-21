@@ -1,4 +1,4 @@
-import { Apps, Drafts, EditRounded, ExpandLess, FileCopy, InsertCommentTwoTone, PeopleAlt } from '@material-ui/icons'
+import { Add, Apps, Drafts, EditRounded, ExpandLess, ExpandMore, FileCopy, InsertCommentTwoTone, PeopleAlt } from '@material-ui/icons'
 import React from 'react'
 import styled from 'styled-components'
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
@@ -28,6 +28,11 @@ const SideBar = () => {
                <SideBarOption Icon={PeopleAlt} Title='People & User Groups' />
                <SideBarOption Icon={FileCopy} Title='File Browse' />
                <SideBarOption Icon={ExpandLess} Title='Show less' />
+               <hr style={{ margin: '0', borderTop: '1px solid #333333', marginRight: '-4px' }} />
+               <SideBarOption Icon={ExpandMore} Title='Channel' />
+               <hr style={{ margin: '0', borderTop: '1px solid #333333', marginRight: '-4px' }} />
+
+               <SideBarOption addChannelOption Icon={Add} Title='Add Channel' />
             </SideBaroption>
          </LeftSideBar>
       </>

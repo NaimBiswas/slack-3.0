@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import VisibilityIcon from '@material-ui/icons/Visibility';
 
-const SideBarOption = ({ Icon, Title }) => {
+const SideBarOption = ({ Icon, Title, addChannelOption }) => {
 
    return (
       <>
