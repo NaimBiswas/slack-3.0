@@ -25,7 +25,7 @@ const Header = () => {
                   <HeaderRightHelp titleAccess='Help' />
                </div>
             </HeaderMiddle>
-            <HeaderRight>
+            <HeaderRight className=''>
                <HeaderRightAvatar
 
 
@@ -53,7 +53,7 @@ const HeaderMiddleSearch = styled.div`
 `
 const HEaderSearchIcon = styled(SearchIcon)``
 const HeaderRightAvatar = styled(Avatar)`
-padding-right:30px;
+
 :hover{
    opacity:50%;
    cursor: pointer;
@@ -83,7 +83,7 @@ background:red;
 const HeaderComponent = styled.div`
    background-color:#0F1A1E;
    color:white;
-   justify-content: space-between;
+   justify-content: space-around;
    display: flex;
 `
 const HeaderLeft = styled.div``
