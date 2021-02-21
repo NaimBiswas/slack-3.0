@@ -53,7 +53,7 @@ const HeaderMiddleSearch = styled.div`
 `
 const HEaderSearchIcon = styled(SearchIcon)``
 const HeaderRightAvatar = styled(Avatar)`
-margin-right:30px;
+padding-right:30px;
 :hover{
    opacity:50%;
    cursor: pointer;
