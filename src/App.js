@@ -6,7 +6,7 @@ import Header from './Components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css'
 function App() {
    return (
-      <div className="App">
+      <div style={{ background: '#2A333F' }} className="App">
          <Router>
             <Switch>
                <Route path='/' exact>
