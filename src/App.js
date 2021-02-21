@@ -1,11 +1,16 @@
 import React from 'react';
-
 import './App.css';
-
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 function App() {
    return (
       <div className="App">
-         <h2>Slack Version:👉3.0</h2>
+         <Router>
+            <Switch>
+               <Route path='/' exact>
+                  <h2>Slack Version:👉3.0</h2>
+               </Route>
+            </Switch>
+         </Router>
       </div>
    );
 }
