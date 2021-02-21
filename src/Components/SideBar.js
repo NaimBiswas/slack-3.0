@@ -15,7 +15,7 @@ const SideBar = () => {
 
 export default SideBar
 const LeftSideBar = styled.div`
-min-height:100vh;
+min-height:91vh;
 background-color:#0F1A1E;
 max-width:14vw;
 `
