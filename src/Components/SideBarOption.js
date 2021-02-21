@@ -1,10 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import VisibilityIcon from '@material-ui/icons/Visibility';
+import { db } from '../firebase';
 
 const SideBarOption = ({ Icon, Title, addChannelOption }) => {
    const addChannel = () => {
-      alert()
+      const ChannelName = prompt("Enter the Channel Name")
+      if (ChannelName) {
+         db.collection('rooms').add({
+            name: ChannelName
+         })
+      }
    }
    const selectChannel = () => {
 
