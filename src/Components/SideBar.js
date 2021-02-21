@@ -35,6 +35,23 @@ const SideBar = () => {
                <SideBarOption Icon={BookmarkBorderIcon} Title='Channel Browser' />
                <SideBarOption Icon={PeopleAlt} Title='People & User Groups' />
                <SideBarOption Icon={FileCopy} Title='File Browse' />
+               <SideBarOption Icon={FileCopy} Title='File Browse' />
+               <SideBarOption Icon={FileCopy} Title='File Browse' />
+               <SideBarOption Icon={FileCopy} Title='File Browse' />
+               <SideBarOption Icon={FileCopy} Title='File Browse' />
+               <SideBarOption Icon={FileCopy} Title='File Browse' />
+               <SideBarOption Icon={FileCopy} Title='File Browse' />
+               <SideBarOption Icon={FileCopy} Title='File Browse' />
+               <SideBarOption Icon={FileCopy} Title='File Browse' />
+               <SideBarOption Icon={FileCopy} Title='File Browse' />
+               <SideBarOption Icon={FileCopy} Title='File Browse' />
+               <SideBarOption Icon={FileCopy} Title='File Browse' />
+               <SideBarOption Icon={FileCopy} Title='File Browse' />
+               <SideBarOption Icon={FileCopy} Title='File Browse' />
+               <SideBarOption Icon={FileCopy} Title='File Browse' />
+               <SideBarOption Icon={FileCopy} Title='File Browse' />
+               <SideBarOption Icon={FileCopy} Title='File Browse' />
+               <SideBarOption Icon={FileCopy} Title='File Browse' />
                <SideBarOption Icon={ExpandLess} Title='Show less' />
                <hr style={{ margin: '0', borderTop: '1px solid #333333', marginRight: '-4px' }} />
                <SideBarOption Icon={ExpandMore} Title='Channel' />
@@ -59,13 +76,14 @@ const SideBaroption = styled.div`
    
     max-height: 80vh;
     ::-webkit-scrollbar{
-       width:5px;
+       display:show!important;
+       width:5px!important;
     }
     ::-webkit-scrollbar-thumb{
-    background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+    background-image: linear-gradient(to top, #09203f 0%, #537895 100%)!important;
     }
     ::-webkit-scrollbar-track{
-       background:none;
+       background:none!important;
     }
 `
 const HeaderTop = styled.div`
