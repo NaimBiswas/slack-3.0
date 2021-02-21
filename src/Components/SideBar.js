@@ -27,10 +27,11 @@ export default SideBar
 const HeaderTop = styled.div`
 display:flex;
 justify-content:space-around;
+align-items:center;
 `
 const HeaderTopLeft = styled.div`
 >h5{
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -49,7 +50,7 @@ const HeaderTopRight = styled.div`
     font-size: 40px;
     border-radius: 5px;
     padding: 6px;
-    margin-top: 9px;
+   
     color: #F2E2CE;
     cursor: pointer;
     :hover{
