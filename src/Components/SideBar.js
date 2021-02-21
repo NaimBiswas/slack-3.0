@@ -8,16 +8,15 @@ const SideBar = () => {
       <>
          <LeftSideBar>
 
-            <HeaderTop>
+            <HeaderTop className='pl-1 pr-1'>
                <HeaderTopLeft className='pb-2'>
-                  <h5 className='text-white text-center pt-2 '>Hello world</h5>
+                  <h5 className='text-white text-center pt-2 '>Naim Biswas</h5>
                   <span><FiberManualRecordIcon style={{ color: 'green' }} fontSize='small'></FiberManualRecordIcon> Naim Biswas</span>
                </HeaderTopLeft>
                <HeaderTopRight>
                   <EditRounded></EditRounded>
                </HeaderTopRight>
             </HeaderTop>
-            <hr style={{ background: 'rgb(75 75 75)' }} className='m-0' />
          </LeftSideBar>
       </>
    )
@@ -28,6 +27,7 @@ const HeaderTop = styled.div`
 display:flex;
 justify-content:space-around;
 align-items:center;
+border-bottom: 1px solid #333333;
 `
 const HeaderTopLeft = styled.div`
 >h5{
