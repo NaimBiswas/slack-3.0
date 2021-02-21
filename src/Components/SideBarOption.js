@@ -3,10 +3,15 @@ import styled from 'styled-components'
 import VisibilityIcon from '@material-ui/icons/Visibility';
 
 const SideBarOption = ({ Icon, Title, addChannelOption }) => {
+   const addChannel = () => {
+      alert()
+   }
+   const selectChannel = () => {
 
+   }
    return (
       <>
-         <SideBarContainer className=''>
+         <SideBarContainer onClick={addChannelOption ? addChannel : selectChannel} className=''>
             <span>{Icon && <Icon style={{ color: '#F5FCDC' }} className='mr-2' fontSize='small' />}</span>
             <p>
                {
