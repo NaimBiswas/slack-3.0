@@ -90,6 +90,7 @@ const HeaderLeft = styled.div``
 const HeaderMiddle = styled.div`
 display:flex;
 justify-content: space-around;
+margin-right:-50px;
 `
 const HeaderMiddleInput = styled.input`
     background: #181717;
