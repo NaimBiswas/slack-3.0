@@ -1,8 +1,10 @@
-import { EditRounded } from '@material-ui/icons'
+import { Apps, Drafts, EditRounded, ExpandLess, FileCopy, InsertCommentTwoTone, PeopleAlt } from '@material-ui/icons'
 import React from 'react'
 import styled from 'styled-components'
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import SideBarOption from './SideBarOption';
+import InboxIcon from '@material-ui/icons/Inbox';
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 
 const SideBar = () => {
    return (
@@ -18,46 +20,14 @@ const SideBar = () => {
                   <EditRounded></EditRounded>
                </HeaderTopRight>
             </HeaderTop>
-            <SideBaroption className='pl-2 pr-1'>
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-               <SideBarOption />
-
-
-               <h3>Hello </h3>
+            <SideBaroption className='pl-2 pr-1 mt-3'>
+               <SideBarOption Icon={InsertCommentTwoTone} Title='Threads' />
+               <SideBarOption Icon={InboxIcon} Title='Mention & Reactions' />
+               <SideBarOption Icon={Drafts} Title='Save Items' />
+               <SideBarOption Icon={BookmarkBorderIcon} Title='Channel Browser' />
+               <SideBarOption Icon={PeopleAlt} Title='People & User Groups' />
+               <SideBarOption Icon={FileCopy} Title='File Browse' />
+               <SideBarOption Icon={ExpandLess} Title='Show less' />
             </SideBaroption>
          </LeftSideBar>
       </>
