@@ -4,11 +4,12 @@ import styled from 'styled-components'
 import { Avatar } from '@material-ui/core'
 import { AccessTime, Copyright } from '@material-ui/icons'
 import HelpIcon from '@material-ui/icons/Help';
+import SearchIcon from '@material-ui/icons/Search';
 
 const Header = () => {
    return (
       <Fragment>
-         <HeaderComponent>
+         <HeaderComponent className='pt-2 pb-2'>
             <HeaderLeft>
 
             </HeaderLeft>
@@ -16,8 +17,10 @@ const Header = () => {
                <div className="">
                   <HeaderRightTime />
                </div>
-               <HeaderMiddleInput placeholder='Search' className='pl-4' />
-               {/* <input size='90' className='form-control' type="text" /> */}
+               <HeaderMiddleSearch>
+                  <HEaderSearchIcon className='mr-2' />
+                  <HeaderMiddleInput placeholder='Search Naim Biswas' />
+               </HeaderMiddleSearch>
                <div className="">
                   <HeaderRightHelp />
                </div>
@@ -37,6 +40,16 @@ const Header = () => {
 
 export default Header
 
+const HeaderMiddleSearch = styled.div`
+   
+    background: #181717;
+    border: 1px solid #3d3d3d;
+    border-radius: 999px;
+    color: #F2E2CE;
+    padding-top: 7px;
+    padding-left: 10px;
+`
+const HEaderSearchIcon = styled(SearchIcon)``
 const HeaderRightAvatar = styled(Avatar)`
 margin-right:30px;
 :hover{
@@ -70,8 +83,8 @@ justify-content: space-around;
 `
 const HeaderMiddleInput = styled.input`
     background: #181717;
-    border: 1px solid #3d3d3d;
-    border-radius: 999px;
+   padding-right: 25px;
+   border:none;
     color:#F2E2CE;
     
     :focus{
