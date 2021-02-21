@@ -2,8 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import { db } from '../firebase';
+import firebase from 'firebase/app';
+
 
 const SideBarOption = ({ Icon, Title, addChannelOption }) => {
+
+
    const addChannel = () => {
       const ChannelName = prompt("Enter the Channel Name")
       if (ChannelName) {
@@ -23,6 +27,8 @@ const SideBarOption = ({ Icon, Title, addChannelOption }) => {
                {
                   Icon ? Title : <div className=""> <VisibilityIcon style={{ color: '#F5FCDC' }} className='mr-2' fontSize='small' /> {Title}</div>
                }
+
+
             </p>
 
          </SideBarContainer>

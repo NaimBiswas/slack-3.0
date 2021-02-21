@@ -5,8 +5,16 @@ import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import SideBarOption from './SideBarOption';
 import InboxIcon from '@material-ui/icons/Inbox';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+import { db } from '../firebase';
+
+import { useCollection } from 'react-firebase-hooks/firestore';
+import firebase from 'firebase';
 
 const SideBar = () => {
+   const [Channels, loading, error] = useCollection(
+      firebase.firestore().collection('rooms'))
+   console.log(Channels);
+
    return (
       <>
          <LeftSideBar>
@@ -33,6 +41,12 @@ const SideBar = () => {
                <hr style={{ margin: '0', borderTop: '1px solid #333333', marginRight: '-4px' }} />
 
                <SideBarOption addChannelOption Icon={Add} Title='Add Channel' />
+               {
+                  Channels?.docs.map((doc) => (
+                     <SideBarOption key={doc.id} id={doc.id} Title={doc.data().name} />
+
+                  ))
+               }
             </SideBaroption>
          </LeftSideBar>
       </>
