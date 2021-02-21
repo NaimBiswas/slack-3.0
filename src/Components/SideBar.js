@@ -9,8 +9,8 @@ const SideBar = () => {
          <LeftSideBar>
 
             <HeaderTop>
-               <HeaderTopLeft>
-                  <h5 className='text-white text-center pt-1 '>Hello world</h5>
+               <HeaderTopLeft className='pb-2'>
+                  <h5 className='text-white text-center pt-2 '>Hello world</h5>
                   <span><FiberManualRecordIcon style={{ color: 'green' }} fontSize='small'></FiberManualRecordIcon> Naim Biswas</span>
                </HeaderTopLeft>
                <HeaderTopRight>
@@ -28,7 +28,21 @@ const HeaderTop = styled.div`
 display:flex;
 justify-content:space-around;
 `
-const HeaderTopLeft = styled.div``
+const HeaderTopLeft = styled.div`
+>h5{
+    font-size: 17px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom:0;
+}
+>span{
+    color: #F2E2CE;
+    font-size: 14px;
+    margin-left: 9px;
+    font-weight: 400;
+}
+`
 const HeaderTopRight = styled.div`
 >.MuiSvgIcon-root{
     border: 1px solid #646464;
