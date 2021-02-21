@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
+import Home from './Components/Pages/Home';
 function App() {
    return (
       <div className="App">
          <Router>
             <Switch>
                <Route path='/' exact>
-                  <h2>Slack Version:👉3.0</h2>
+                  <Home></Home>
                </Route>
             </Switch>
          </Router>
