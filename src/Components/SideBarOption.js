@@ -27,10 +27,7 @@ const SideBarOption = ({ Icon, Title, addChannelOption, id }) => {
                {
                   Icon ? Title : <div className=""> <VisibilityIcon style={{ color: '#F5FCDC' }} className='mr-2' fontSize='small' /> {Title}</div>
                }
-
-
             </p>
-
          </SideBarContainer>
       </>
    )

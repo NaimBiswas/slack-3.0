@@ -13,7 +13,7 @@ import firebase from 'firebase';
 const SideBar = () => {
    const [Channels, loading, error] = useCollection(
       firebase.firestore().collection('rooms'))
-   console.log(Channels);
+
 
    return (
       <>
