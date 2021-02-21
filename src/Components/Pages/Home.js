@@ -1,9 +1,12 @@
 import React, { Fragment } from 'react'
+import Header from '../Header'
+import SideBar from '../SideBar'
 
 const Home = () => {
    return (
       <Fragment>
-         <h2>Slack Version:👉3.0</h2>
+         <Header></Header>
+         <SideBar></SideBar>
       </Fragment>
    )
 }

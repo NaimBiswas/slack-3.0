@@ -77,7 +77,7 @@ cursor: pointer;
 `
 const HeaderBOttonBorder = styled.hr`
 margin: 0;
-background:red;
+background-color: rgb(75 75 75);
 `
 
 const HeaderComponent = styled.div`
