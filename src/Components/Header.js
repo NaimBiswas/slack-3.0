@@ -15,14 +15,14 @@ const Header = () => {
             </HeaderLeft>
             <HeaderMiddle>
                <div className="">
-                  <HeaderRightTime />
+                  <HeaderRightTime titleAccess='History' />
                </div>
                <HeaderMiddleSearch>
                   <HEaderSearchIcon className='mr-2' />
                   <HeaderMiddleInput placeholder='Search Naim Biswas' />
                </HeaderMiddleSearch>
                <div className="">
-                  <HeaderRightHelp />
+                  <HeaderRightHelp titleAccess='Help' />
                </div>
             </HeaderMiddle>
             <HeaderRight>
@@ -62,10 +62,18 @@ margin-right:30px;
 const HeaderRightTime = styled(AccessTime)`
 margin-right:23px;
 margin-top:8px;
+cursor: pointer;
+:hover{
+   opacity:.9;
+}
 `
 const HeaderRightHelp = styled(HelpIcon)`
 margin-left:23px;
 margin-top:8px;
+cursor: pointer;
+:hover{
+   opacity:.9;
+}
 `
 const HeaderBOttonBorder = styled.hr`
 margin: 0;
