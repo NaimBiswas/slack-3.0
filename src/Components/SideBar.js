@@ -11,7 +11,7 @@ const SideBar = () => {
             <HeaderTop className='pl-1 pr-1'>
                <HeaderTopLeft className='pb-2'>
                   <h5 className='text-white text-center pt-2 '>Naim Biswas</h5>
-                  <span><FiberManualRecordIcon style={{ color: 'green' }} fontSize='small'></FiberManualRecordIcon> Naim Biswas</span>
+                  <span><FiberManualRecordIcon style={{ color: '#28a745' }} fontSize='small'></FiberManualRecordIcon> Naim Biswas</span>
                </HeaderTopLeft>
                <HeaderTopRight>
                   <EditRounded></EditRounded>
