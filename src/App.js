@@ -1,12 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+
 import './App.css';
 
 function App() {
    return (
       <div className="App">
-
+         <h2>Slack Version:👉3.0</h2>
       </div>
    );
 }
