@@ -2,6 +2,7 @@ import { EditRounded } from '@material-ui/icons'
 import React from 'react'
 import styled from 'styled-components'
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import SideBarOption from './SideBarOption';
 
 const SideBar = () => {
    return (
@@ -17,12 +18,67 @@ const SideBar = () => {
                   <EditRounded></EditRounded>
                </HeaderTopRight>
             </HeaderTop>
+            <SideBaroption className='pl-2 pr-1'>
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+               <SideBarOption />
+
+
+               <h3>Hello </h3>
+            </SideBaroption>
          </LeftSideBar>
       </>
    )
 }
 
 export default SideBar
+const SideBaroption = styled.div`
+    overflow-y: scroll;
+   
+    max-height: 80vh;
+    ::-webkit-scrollbar{
+       width:5px;
+    }
+    ::-webkit-scrollbar-thumb{
+    background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+    }
+    ::-webkit-scrollbar-track{
+       background:none;
+    }
+`
 const HeaderTop = styled.div`
 display:flex;
 justify-content:space-around;

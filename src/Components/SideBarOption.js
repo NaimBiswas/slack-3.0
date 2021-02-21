@@ -3,7 +3,7 @@ import React from 'react'
 const SideBarOption = () => {
    return (
       <div>
-         <h4>Hello World</h4>
+         <h4 className='text-white'>Hello World</h4>
       </div>
    )
 }
