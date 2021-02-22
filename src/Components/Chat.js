@@ -34,25 +34,72 @@ const Chat = () => {
                      const { message, timestamp, user, userImage } = doc.data();
                      return (
                         <>
-                           <h3 className='text-light'>{message}</h3>
-                           <h3 className='text-light'>{user}</h3>
-                           <h3 className='text-light'><img src={userImage} alt="" /></h3>
+                           <MessageBody>
+                              <img className='img-thumbnail' src={userImage} alt="" />
+                              <MessageRightSide className="">
+                                 <h4 className=''>
+                                    {user} <span>{new Date(timestamp?.toDate()).toLocaleString()}</span>
+                                 </h4>
+                                 <p className=''>{message}</p>
+                              </MessageRightSide>
+
+                           </MessageBody>
                         </>
                      )
                   })
                }
             </ShowMessages>
-            <h2 className='text-white'>Hello WOrld</h2>
+
             <ChatMessages>
                <ChatInput ChannelName={roomDetails?.data().name} ChannelId={RoomId}></ChatInput>
             </ChatMessages>
 
-         </ChatContainer>
+         </ChatContainer >
       </>
    )
 }
 
 export default Chat
+const MessageRightSide = styled.div`
+>h4{
+     color: #4ef95b;
+    font-weight: 500;
+    letter-spacing: 1.3px;
+    margin: 0;
+        font-size: 20px;
+}
+   >h4 >span{
+     color: #9e9e9e;
+    font-size: 16px;
+    font-weight: 600;
+   }
+   >p{
+   margin: 0;
+    font-size: 16px;
+    color: #f2e2ce;
+    text-align: justify;
+    width: 100%;
+    
+   }
+`
+const MessageBody = styled.div`
+    display: flex;
+    align-items: center;
+    padding: 17px;
+    border-bottom: 1px solid #f2e2ce63;
+    width: 97%;
+  
+    margin-left: 16px;
+    padding: 17px 0;
+    >img{
+       height: 60px;
+    width: auto;
+    margin-right: 15px;
+    margin-left: 10px;
+    
+    }
+
+`
 const ShowMessages = styled.div` 
 `
 const ChatMessages = styled.div` 
