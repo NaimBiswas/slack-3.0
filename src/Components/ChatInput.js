@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react'
 import { Button } from 'react-bootstrap'
 import styled from 'styled-components'
 import { db } from '../firebase'
-const ChatInput = ({ ChannelId }) => {
+const ChatInput = ({ ChannelId, ChannelName }) => {
    const [Message, setMessage] = useState()
 
    const TheMessage = e => {
@@ -25,7 +25,7 @@ const ChatInput = ({ ChannelId }) => {
       <div>
          <TextAreateSection>
             <form action="">
-               <input value={Message} onChange={(e) => setMessage(e.target.value)} style={{ maxWidth: '80vw' }} className='form-control' name="" id={ChannelId} placeholder='Enter Your Messages'></input>
+               <input value={Message} onChange={(e) => setMessage(e.target.value)} style={{ maxWidth: '80vw' }} className='form-control' name="" id={ChannelId} placeholder={`Enter Your Messages from  ${ChannelName ? ChannelName : ''}`}></input>
                <Button hidden type='submit' onClick={TheMessage}></Button>
             </form>
          </TextAreateSection>

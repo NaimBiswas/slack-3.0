@@ -30,7 +30,7 @@ const Chat = () => {
             </Header>
             <h2 className='text-white'>Hello WOrld</h2>
             <ChatMessages>
-               <ChatInput ChannelId={RoomId}></ChatInput>
+               <ChatInput ChannelName={roomDetails?.data().name} ChannelId={RoomId}></ChatInput>
             </ChatMessages>
 
          </ChatContainer>
