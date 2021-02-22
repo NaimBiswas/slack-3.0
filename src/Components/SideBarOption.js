@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import { db } from '../firebase';
 import firebase from 'firebase/app';
-import { useDispatch } from 'react-redux';
-import { enterRoom } from '../features/appSlice';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { enterRoom, selectRoomId } from '../features/appSlice';
+import './Test.css'
 
 const SideBarOption = ({ Icon, Title, addChannelOption, id }) => {
    const dispatch = useDispatch()
-
+   const roomId = useSelector(selectRoomId)
    const addChannel = () => {
       const ChannelName = prompt("Enter the Channel Name")
       if (ChannelName) {
@@ -27,7 +27,7 @@ const SideBarOption = ({ Icon, Title, addChannelOption, id }) => {
    }
    return (
       <>
-         <SideBarContainer onClick={addChannelOption ? addChannel : selectChannel} className=''>
+         <SideBarContainer onClick={addChannelOption ? addChannel : selectChannel} className={id === roomId ? 'active' : 'testIdName'}>
             <span>{Icon && <Icon style={{ color: '#F5FCDC' }} className='mr-2' fontSize='small' />}</span>
             <p>
                {
@@ -41,6 +41,9 @@ const SideBarOption = ({ Icon, Title, addChannelOption, id }) => {
 
 export default SideBarOption
 const SideBarContainer = styled.div`
+.active{
+   background:gray;
+}
 display:flex;
 cursor: pointer;
 >p{
@@ -55,7 +58,8 @@ cursor: pointer;
    padding-bottom:13px;
    padding-left:10px;
 }
+
 :hover{
-   background:#0b1214;
+   background:#1e8faf;
 }
 `
