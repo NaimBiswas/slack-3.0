@@ -1,5 +1,5 @@
 import { InfoOutlined, StarBorderOutlined } from '@material-ui/icons'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { selectRoomId } from '../features/appSlice'
@@ -8,62 +8,72 @@ import ChatInput from './ChatInput'
 import { useCollection, useDocument } from 'react-firebase-hooks/firestore'
 import { Spinner } from 'react-bootstrap'
 const Chat = () => {
+   const ChatRef = useRef(null)
    const RoomId = useSelector(selectRoomId)
    const [roomDetails] = useDocument(
       RoomId && db.collection('rooms').doc(RoomId)
    )
-   const [roomMessages] = useCollection(RoomId && db.collection("rooms").doc(RoomId).collection('messages').orderBy('timestamp', 'desc'))
+   const [roomMessages, loading] = useCollection(RoomId && db.collection("rooms").doc(RoomId).collection('messages').orderBy('timestamp', 'asc'))
+
+   useEffect(() => {
+      ChatRef?.current?.scrollIntoView({
+         behavior: "smooth",
+      })
+   }, [RoomId, loading])
 
    return (
       <>
-         <ChatContainer>
-            <Header>
-               <HeaderLeft>
-                  <h4>#Room-Name </h4>
-                  <StarBorderOutlined></StarBorderOutlined>
-               </HeaderLeft>
-               <HeaderRight>
-                  <p>
-                     <InfoOutlined /> Details
+         {roomDetails && RoomId && (
+            <ChatContainer>
+               <Header>
+                  <HeaderLeft>
+                     <h4>#Room-Name </h4>
+                     <StarBorderOutlined></StarBorderOutlined>
+                  </HeaderLeft>
+                  <HeaderRight>
+                     <p>
+                        <InfoOutlined /> Details
                   </p>
-               </HeaderRight>
-            </Header>
-            <ShowMessages>
-               {!roomMessages ?
-                  <SpinnerARea>
-                     <Spinner animation="border" variant='info' role="status">
-                        <span className="sr-only">Loading...</span>
-                     </Spinner>
-                  </SpinnerARea> :
-                  roomMessages?.docs.map((doc) => {
-                     const { message, timestamp, user, userImage } = doc.data();
-                     return (
-                        <>
-                           <MessageBody>
-                              <img className='img-thumbnail' src={userImage} alt="" />
-                              <MessageRightSide className="">
-                                 <h4 className=''>
-                                    {user} <span>{new Date(timestamp?.toDate()).toLocaleString()}</span>
-                                 </h4>
-                                 <p className=''>{message}</p>
-                              </MessageRightSide>
+                  </HeaderRight>
+               </Header>
+               <ShowMessages >
+                  {!roomMessages ?
+                     <SpinnerARea>
+                        <Spinner animation="border" variant='danger' role="status">
+                           <span className="sr-only">Loading...</span>
+                        </Spinner>
+                     </SpinnerARea> :
+                     roomMessages?.docs.map((doc) => {
+                        const { message, timestamp, user, userImage } = doc.data();
+                        return (
+                           <>
+                              <MessageBody >
+                                 <img className='img-thumbnail' src={userImage} alt="" />
+                                 <MessageRightSide ref={ChatRef} className="">
+                                    <h4 className=''>
+                                       {user} <span>{new Date(timestamp?.toDate()).toLocaleString()}</span>
+                                    </h4>
+                                    <p className=''>{message}</p>
+                                 </MessageRightSide>
 
-                           </MessageBody>
-                        </>
-                     )
-                  })
+                              </MessageBody>
+                           </>
+                        )
+                     })
 
-               }
-               {
-                  roomMessages?.docs == 0 && <h3 className='text-danger' style={{ display: 'flex', minHeight: '50vh', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>No Data Found!</h3>
-               }
-            </ShowMessages>
+                  }
+                  {
+                     roomMessages?.docs == 0 && <h3 className='text-danger' style={{ display: 'flex', minHeight: '50vh', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>No Data Found!</h3>
+                  }
+               </ShowMessages>
 
-            <ChatMessages>
-               <ChatInput ChannelName={roomDetails?.data().name} ChannelId={RoomId}></ChatInput>
-            </ChatMessages>
+               <ChatMessages>
+                  <ChatInput ChatRef={ChatRef} ChannelName={roomDetails?.data().name} ChannelId={RoomId}></ChatInput>
+               </ChatMessages>
 
-         </ChatContainer >
+            </ChatContainer >
+
+         )}
       </>
    )
 }
@@ -148,6 +158,7 @@ const ChatContainer = styled.div`
     overflow-y: scroll;
     overflow-x: hidden;
     max-height: 80vh;
+    padding-bottom:70px;
     ::-webkit-scrollbar{
    width:7px;
 }
