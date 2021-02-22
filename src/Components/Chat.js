@@ -17,7 +17,6 @@ const Chat = () => {
    return (
       <>
          <ChatContainer>
-
             <Header>
                <HeaderLeft>
                   <h4>#Room-Name </h4>
