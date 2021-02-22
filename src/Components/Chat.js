@@ -28,6 +28,20 @@ const Chat = () => {
                   </p>
                </HeaderRight>
             </Header>
+            <ShowMessages>
+               {
+                  roomMessages?.docs.map((doc) => {
+                     const { message, timestamp, user, userImage } = doc.data();
+                     return (
+                        <>
+                           <h3 className='text-light'>{message}</h3>
+                           <h3 className='text-light'>{user}</h3>
+                           <h3 className='text-light'><img src={userImage} alt="" /></h3>
+                        </>
+                     )
+                  })
+               }
+            </ShowMessages>
             <h2 className='text-white'>Hello WOrld</h2>
             <ChatMessages>
                <ChatInput ChannelName={roomDetails?.data().name} ChannelId={RoomId}></ChatInput>
@@ -39,6 +53,8 @@ const Chat = () => {
 }
 
 export default Chat
+const ShowMessages = styled.div` 
+`
 const ChatMessages = styled.div` 
 `
 const Header = styled.div`
