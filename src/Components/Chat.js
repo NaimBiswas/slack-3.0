@@ -3,10 +3,15 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { selectRoomId } from '../features/appSlice'
+import { db } from '../firebase'
 import ChatInput from './ChatInput'
-
+import { useCollection, useDocument } from 'react-firebase-hooks/firestore'
 const Chat = () => {
    const RoomId = useSelector(selectRoomId)
+   const [roomDetails] = useDocument(
+      RoomId && db.collection('rooms').doc(RoomId)
+   )
+   const [roomMessages] = useCollection(RoomId && db.collection("rooms").doc(RoomId).collection('messages').orderBy('timestamp', 'asc'))
 
    return (
       <>
@@ -23,10 +28,9 @@ const Chat = () => {
                   </p>
                </HeaderRight>
             </Header>
+            <h2 className='text-white'>Hello WOrld</h2>
             <ChatMessages>
-               <ChatInput ChannelId={RoomId}>
-
-               </ChatInput>
+               <ChatInput ChannelId={RoomId}></ChatInput>
             </ChatMessages>
 
          </ChatContainer>
