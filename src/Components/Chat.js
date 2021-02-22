@@ -6,12 +6,13 @@ import { selectRoomId } from '../features/appSlice'
 import { db } from '../firebase'
 import ChatInput from './ChatInput'
 import { useCollection, useDocument } from 'react-firebase-hooks/firestore'
+import { Spinner } from 'react-bootstrap'
 const Chat = () => {
    const RoomId = useSelector(selectRoomId)
    const [roomDetails] = useDocument(
       RoomId && db.collection('rooms').doc(RoomId)
    )
-   const [roomMessages] = useCollection(RoomId && db.collection("rooms").doc(RoomId).collection('messages').orderBy('timestamp', 'asc'))
+   const [roomMessages] = useCollection(RoomId && db.collection("rooms").doc(RoomId).collection('messages').orderBy('timestamp', 'desc'))
 
    return (
       <>
@@ -29,7 +30,12 @@ const Chat = () => {
                </HeaderRight>
             </Header>
             <ShowMessages>
-               {
+               {!roomMessages ?
+                  <SpinnerARea>
+                     <Spinner animation="border" variant='info' role="status">
+                        <span className="sr-only">Loading...</span>
+                     </Spinner>
+                  </SpinnerARea> :
                   roomMessages?.docs.map((doc) => {
                      const { message, timestamp, user, userImage } = doc.data();
                      return (
@@ -47,6 +53,10 @@ const Chat = () => {
                         </>
                      )
                   })
+
+               }
+               {
+                  roomMessages?.docs == 0 && <h3 className='text-danger' style={{ display: 'flex', minHeight: '50vh', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>No Data Found!</h3>
                }
             </ShowMessages>
 
@@ -60,6 +70,13 @@ const Chat = () => {
 }
 
 export default Chat
+const SpinnerARea = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+`
 const MessageRightSide = styled.div`
 >h4{
      color: #4ef95b;
@@ -127,4 +144,8 @@ const HeaderLeft = styled.div`
 const HeaderRight = styled.div``
 const ChatContainer = styled.div`
    margin-left:15%;
+   scroll-behavior: smooth;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    max-height: 80vh;
 `
