@@ -117,6 +117,7 @@ const MessageBody = styled.div`
 
 `
 const ShowMessages = styled.div` 
+
 `
 const ChatMessages = styled.div` 
 `
@@ -145,6 +146,16 @@ const ChatContainer = styled.div`
    margin-left:15%;
    scroll-behavior: smooth;
     overflow-y: scroll;
-    overflow-x: scroll;
+    overflow-x: hidden;
     max-height: 80vh;
+    ::-webkit-scrollbar{
+   width:7px;
+}
+::-webkit-scrollbar-thumb{
+   background:#ff0000d1;
+   border-radius:20px;
+}
+::-webkit-scrollbar-track{
+   background:none;
+}
 `
