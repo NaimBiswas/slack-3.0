@@ -5,7 +5,7 @@ import Header from './Components/Header';
 import SideBar from './Components/SideBar';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import Chat from './Components/Chat';
-import { ClimbingBoxLoader, ClipLoader } from 'react-spinners';
+import { ClimbingBoxLoader, } from 'react-spinners';
 
 function App() {
    const [Loading, setLoading] = useState(false)
