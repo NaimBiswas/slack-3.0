@@ -5,8 +5,11 @@ import { Avatar } from '@material-ui/core'
 import { AccessTime, Copyright } from '@material-ui/icons'
 import HelpIcon from '@material-ui/icons/Help';
 import SearchIcon from '@material-ui/icons/Search';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../firebase';
 
 const Header = () => {
+   const [user,] = useAuthState(auth)
    return (
       <Fragment>
          <HeaderComponent className='pt-2 pb-2'>
@@ -27,8 +30,10 @@ const Header = () => {
             </HeaderMiddle>
             <HeaderRight className=''>
                <HeaderRightAvatar
-
-
+                  src={user?.photoURL}
+                  alt={user?.displayNAME}
+                  onClick={() => auth.signOut()}
+                  title="Sign Out"
                />
             </HeaderRight>
          </HeaderComponent>
