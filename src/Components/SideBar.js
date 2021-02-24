@@ -5,15 +5,16 @@ import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import SideBarOption from './SideBarOption';
 import InboxIcon from '@material-ui/icons/Inbox';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
-import { db } from '../firebase';
+import { auth, db } from '../firebase';
 
 import { useCollection } from 'react-firebase-hooks/firestore';
 import firebase from 'firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const SideBar = () => {
    const [Channels, loading, error] = useCollection(
       firebase.firestore().collection('rooms'))
-
+   const [user] = useAuthState(auth)
 
    return (
       <>
@@ -21,8 +22,8 @@ const SideBar = () => {
 
             <HeaderTop className='pl-1 pr-1'>
                <HeaderTopLeft className='pb-1'>
-                  <h5 className='text-white text-center pt-2 '>Naim Biswas</h5>
-                  <span><FiberManualRecordIcon style={{ color: '#28a745' }} fontSize='small'></FiberManualRecordIcon> Naim Biswas</span>
+                  <h5 className='text-white text-center pt-2 '>{user?.displayName}</h5>
+                  <span style={{ textTransform: 'lowercase' }}><FiberManualRecordIcon style={{ color: '#28a745', }} fontSize='small'></FiberManualRecordIcon>{user?.displayName}</span>
                </HeaderTopLeft>
                <HeaderTopRight>
                   <EditRounded></EditRounded>
