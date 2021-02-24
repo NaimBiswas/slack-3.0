@@ -19,7 +19,9 @@ export default Login
 const LogInPageDiv = styled.div``
 const Logo = styled.div`
 >img{
-
+height:110px;
+width:auto;
+object-fit:contain;
 
 }
 `
