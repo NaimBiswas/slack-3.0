@@ -6,9 +6,13 @@ import SideBar from './Components/SideBar';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import Chat from './Components/Chat';
 import { ClimbingBoxLoader, } from 'react-spinners';
+import { auth } from './firebase';
+import { useAuthState } from 'react-firebase-hooks/auth'
+import Login from './Components/Login';
 
 function App() {
    const [Loading, setLoading] = useState(false)
+   const [user, loadin] = useAuthState(auth)
    useEffect(() => {
 
       setTimeout(() => {
@@ -22,15 +26,21 @@ function App() {
             <ClimbingBoxLoader color={'#FF9E00'} loading={true} size={15} />
          </div> :
             <>
-               <Header></Header>
-               <SideBar></SideBar>
-               <Router>
-                  <Switch>
-                     <Route path='/'>
-                        <Chat></Chat>
-                     </Route>
-                  </Switch>
-               </Router>
+               {!user ?
+                  <Login />
+                  :
+                  <>
+                     <Header></Header>
+                     <SideBar></SideBar>
+                     <Router>
+                        <Switch>
+                           <Route path='/'>
+                              <Chat></Chat>
+                           </Route>
+                        </Switch>
+                     </Router>
+                  </>
+               }
             </>
 
 
