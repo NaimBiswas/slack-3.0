@@ -16,7 +16,12 @@ const Login = () => {
 }
 
 export default Login
-const LogInPageDiv = styled.div``
+const LogInPageDiv = styled.div`
+    background: #000;
+    padding: 40px;
+    box-shadow: 1px 1px 10px 4px #525252;
+    border-radius: 5px;
+`
 const Logo = styled.div`
 >img{
 height:110px;
