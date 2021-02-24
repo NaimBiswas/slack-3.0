@@ -5,13 +5,24 @@ const Login = () => {
    return (
       <>
          <LogInPage>
-            <h3>LogIn Page</h3>
+            <LogInPageDiv>
+               <Logo>
+                  <img src="https://cdn.freebiesupply.com/logos/large/2x/slack-logo-icon.png" alt="" />
+               </Logo>
+            </LogInPageDiv>
          </LogInPage>
       </>
    )
 }
 
 export default Login
+const LogInPageDiv = styled.div``
+const Logo = styled.div`
+>img{
+
+
+}
+`
 const LogInPage = styled.div`
    color: #ffff;
    min-height:100vh;
