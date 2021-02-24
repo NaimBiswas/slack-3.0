@@ -86,7 +86,7 @@ background-color: rgb(75 75 75);
 `
 
 const HeaderComponent = styled.div`
-   background-color:#0F1A1E;
+   background-color:var(--slack-color);
    color:white;
    justify-content: space-around;
    display: flex;
