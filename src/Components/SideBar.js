@@ -10,17 +10,17 @@ import { auth, db } from '../firebase';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import firebase from 'firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
-
-const SideBar = () => {
+import './Light.css'
+const SideBar = ({ Dark, setDark }) => {
    const [Channels, loading, error] = useCollection(
       firebase.firestore().collection('rooms'))
    const [user] = useAuthState(auth)
 
    return (
       <>
-         <LeftSideBar>
+         <LeftSideBar className={`pl-1 pr-1 ${Dark ? '' : 'LightHeader'}`}>
 
-            <HeaderTop className='pl-1 pr-1'>
+            <HeaderTop className={`pl-1 pr-1 ${Dark ? '' : 'LightHeader'}`}>
                <HeaderTopLeft className='pb-1'>
                   <h5 className='text-white text-center pt-2 '>{user?.displayName}</h5>
                   <span style={{ textTransform: 'lowercase' }}><FiberManualRecordIcon style={{ color: '#28a745', }} fontSize='small'></FiberManualRecordIcon>{user?.displayName}</span>

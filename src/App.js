@@ -9,9 +9,12 @@ import { ClimbingBoxLoader, } from 'react-spinners';
 import { auth } from './firebase';
 import { useAuthState } from 'react-firebase-hooks/auth'
 import Login from './Components/Login';
+import './Components/Light.css'
 
 function App() {
    const [Loading, setLoading] = useState(false)
+
+   const [Dark, setDark] = useState(true)
    const [user, loadin] = useAuthState(auth)
    useEffect(() => {
 
@@ -21,7 +24,7 @@ function App() {
 
    }, [Loading])
    return (
-      <div style={{ background: '#2A333F', minHeight: "100vh" }} className="App">
+      <div style={{ minHeight: "100vh" }} className={`App ${Dark ? 'DarkMode' : 'LightMode'}`}>
          {!Loading ? <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }} className="">
             <ClimbingBoxLoader color={'#FF9E00'} loading={true} size={15} />
          </div> :
@@ -30,8 +33,8 @@ function App() {
                   <Login />
                   :
                   <>
-                     <Header></Header>
-                     <SideBar></SideBar>
+                     <Header setDark={setDark} Dark={Dark}></Header>
+                     <SideBar setDark={setDark} Dark={Dark}></SideBar>
                      <Router>
                         <Switch>
                            <Route path='/'>

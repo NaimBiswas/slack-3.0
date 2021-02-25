@@ -7,14 +7,12 @@ import HelpIcon from '@material-ui/icons/Help';
 import SearchIcon from '@material-ui/icons/Search';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase';
-import { Button } from 'react-bootstrap';
-
-const Header = () => {
-   const [Dark, setDark] = useState(true)
+import './Light.css'
+const Header = ({ Dark, setDark }) => {
    const [user,] = useAuthState(auth)
    return (
       <Fragment>
-         <HeaderComponent className='pt-2 pb-2'>
+         <HeaderComponent className={`pt-2 pb-2 ${Dark ? '' : 'LightHeader'}`}>
             <HeaderLeft>
 
             </HeaderLeft>
@@ -41,14 +39,14 @@ const Header = () => {
             </HeaderRight>
             <div style={{ cursor: 'pointer' }} className="">
                {
-                  Dark ? <WbSunny className='mt-1' onClick={() => setDark(false)}></WbSunny> : <Brightness3 onClick={() => setDark(true)} className='mt-1'></Brightness3>
+                  Dark ? <WbSunny className='mt-2' onClick={() => setDark(false)}></WbSunny> : <Brightness3 onClick={() => setDark(true)} className='mt-2'></Brightness3>
                }
             </div>
 
          </HeaderComponent>
          <HeaderBOttonBorder></HeaderBOttonBorder>
 
-      </Fragment>
+      </Fragment >
    )
 }
 
@@ -99,6 +97,7 @@ const HeaderComponent = styled.div`
    color:white;
    justify-content: space-around;
    display: flex;
+   
 `
 const HeaderLeft = styled.div``
 const HeaderMiddle = styled.div`
