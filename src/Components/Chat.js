@@ -53,7 +53,7 @@ const Chat = () => {
                                     <h4 className=''>
                                        {user} <span>{new Date(timestamp?.toDate()).toLocaleString()}</span>
                                     </h4>
-                                    <p className=''>{message}</p>
+                                    <p dangerouslySetInnerHTML={{ __html: message }}></p>
                                  </MessageRightSide>
 
                               </MessageBody>

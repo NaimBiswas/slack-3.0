@@ -5,10 +5,15 @@ import { Button } from 'react-bootstrap'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import styled from 'styled-components'
 import { auth, db } from '../firebase'
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import './Config.css'
+
 const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
+
    const [Message, setMessage] = useState()
    const [user] = useAuthState(auth)
-   console.log(user);
+
    const ChangeIfHaveMessage = (e) => {
       if (e.target.value !== null) {
          setMessage(e.target.value)
@@ -17,6 +22,7 @@ const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
       }
    }
    const TheMessage = e => {
+
       e.preventDefault()
       if (!ChannelId) {
          return false
@@ -37,22 +43,40 @@ const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
       setMessage('')
 
    }
+   const INputCheck = (e, editor) => {
+
+      const data = editor.getData()
+
+      setMessage(data)
+   }
    return (
-      <div>
+      <>
+
+
          <TextAreateSection>
             <form action="">
-               <input required value={Message} onChange={ChangeIfHaveMessage} style={{ maxWidth: '80vw' }} className='form-control' name="" id={ChannelId} placeholder={`Enter Your Messages from  ${ChannelName ? ChannelName : ''}`}></input>
-               <Button hidden type='submit' onClick={TheMessage}></Button>
+               <CKEditor data={`Enter Your Messages from  ${ChannelName ? ChannelName : ''}`} Placeholder='Enter YOur Message' editor={ClassicEditor} onChange={INputCheck} />
+
+
+
+               {/* <input
+                  placeholder={`Enter Your Messages from  ${ChannelName ? ChannelName : ''}`} id={ChannelId}
+
+                  required value={Message} onChange={ChangeIfHaveMessage} className='form-control' name="" />
+                */}
+
+
+               <Button variant='info' className='mt-1' type='submit' onClick={TheMessage}>Send Message</Button>
             </form>
          </TextAreateSection>
-      </div>
+      </>
    )
 }
 
 export default ChatInput
 const TextAreateSection = styled.div`
    position:absolute;
-   bottom: 5%;
+   bottom: 5px;
    max-width: 80vw;
    width: 100%;
    margin-left:30px;
