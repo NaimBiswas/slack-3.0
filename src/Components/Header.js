@@ -1,14 +1,16 @@
 
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import styled from 'styled-components'
 import { Avatar } from '@material-ui/core'
-import { AccessTime, Copyright } from '@material-ui/icons'
+import { AccessTime, Brightness1, Brightness3, Copyright, WbSunny } from '@material-ui/icons'
 import HelpIcon from '@material-ui/icons/Help';
 import SearchIcon from '@material-ui/icons/Search';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase';
+import { Button } from 'react-bootstrap';
 
 const Header = () => {
+   const [Dark, setDark] = useState(true)
    const [user,] = useAuthState(auth)
    return (
       <Fragment>
@@ -35,7 +37,14 @@ const Header = () => {
                   onClick={() => auth.signOut()}
                   title="Sign Out"
                />
+
             </HeaderRight>
+            <div style={{ cursor: 'pointer' }} className="">
+               {
+                  Dark ? <WbSunny className='mt-1' onClick={() => setDark(false)}></WbSunny> : <Brightness3 onClick={() => setDark(true)} className='mt-1'></Brightness3>
+               }
+            </div>
+
          </HeaderComponent>
          <HeaderBOttonBorder></HeaderBOttonBorder>
 
