@@ -56,7 +56,7 @@ const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
 
 
          <TextAreateSection>
-            <h3 className='text-light'>{`Enter Your Messages on  ${ChannelName ? ChannelName : ''}`} </h3>
+            <h6 className='text-light'>{`Enter Your Messages on  ${ChannelName ? ChannelName : ''}`} </h6>
             <form action="">
                <CKEditor Placeholder='Enter YOur Message' editor={ClassicEditor} onChange={INputCheck} />
 
