@@ -7,7 +7,7 @@ import { db } from '../firebase'
 import ChatInput from './ChatInput'
 import { useCollection, useDocument } from 'react-firebase-hooks/firestore'
 import { Spinner } from 'react-bootstrap'
-const Chat = () => {
+const Chat = ({ Dark }) => {
    const ChatRef = useRef(null)
    const RoomId = useSelector(selectRoomId)
    const [roomDetails] = useDocument(
@@ -47,7 +47,7 @@ const Chat = () => {
                         const { message, timestamp, user, userImage } = doc.data();
                         return (
                            <>
-                              <MessageBody >
+                              <MessageBody className={Dark ? '' : 'LightHover'}>
                                  <img className='img-thumbnail' src={userImage} alt="" />
                                  <MessageRightSide ref={ChatRef} className="">
                                     <h4 className=''>

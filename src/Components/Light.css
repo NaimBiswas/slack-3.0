@@ -1,9 +1,16 @@
 .LightHeader{
-      background-color:#076873;
+      background-color:#076873!important;
    }
    .DarkMode{
-      background: #2A333F;
+      background: #2A333F!important;
    }
    .LightMode{
-      background: #033540;
+      background: #033540!important;
+   }
+   .LightHover:hover{
+      background-color:#07687359!important;
+   }
+   .LightHeaderSearch{
+      background-color:#033540!important;
+     
    }

@@ -11,7 +11,7 @@ import { useCollection } from 'react-firebase-hooks/firestore';
 import firebase from 'firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import './Light.css'
-const SideBar = ({ Dark, setDark }) => {
+const SideBar = ({ Dark, }) => {
    const [Channels, loading, error] = useCollection(
       firebase.firestore().collection('rooms'))
    const [user] = useAuthState(auth)

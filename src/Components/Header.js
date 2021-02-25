@@ -20,9 +20,9 @@ const Header = ({ Dark, setDark }) => {
                <div className="">
                   <HeaderRightTime titleAccess='History' />
                </div>
-               <HeaderMiddleSearch>
+               <HeaderMiddleSearch className={Dark ? '' : 'LightHeaderSearch'}>
                   <HEaderSearchIcon className='mr-2' />
-                  <HeaderMiddleInput placeholder='Search Naim Biswas' />
+                  <HeaderMiddleInput className={Dark ? '' : 'LightHeaderSearch'} placeholder='Search Naim Biswas' />
                </HeaderMiddleSearch>
                <div className="">
                   <HeaderRightHelp titleAccess='Help' />
@@ -93,7 +93,7 @@ background-color: rgb(75 75 75);
 `
 
 const HeaderComponent = styled.div`
-   background-color:var(--slack-color);
+   background-color:#0F1A1E;
    color:white;
    justify-content: space-around;
    display: flex;
@@ -104,6 +104,7 @@ const HeaderMiddle = styled.div`
 display:flex;
 justify-content: space-around;
 margin-right:-50px;
+margin-left: 10%;
 `
 const HeaderMiddleInput = styled.input`
     background: #181717;

@@ -34,11 +34,11 @@ function App() {
                   :
                   <>
                      <Header setDark={setDark} Dark={Dark}></Header>
-                     <SideBar setDark={setDark} Dark={Dark}></SideBar>
+                     <SideBar Dark={Dark}></SideBar>
                      <Router>
                         <Switch>
                            <Route path='/'>
-                              <Chat></Chat>
+                              <Chat Dark={Dark}></Chat>
                            </Route>
                         </Switch>
                      </Router>
