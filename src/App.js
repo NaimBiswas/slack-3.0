@@ -14,7 +14,7 @@ import './Components/Light.css'
 function App() {
    const [Loading, setLoading] = useState(false)
 
-   const [Dark, setDark] = useState(true)
+   const [Dark, setDark] = useState(false)
    const [user, loadin] = useAuthState(auth)
    useEffect(() => {
 
