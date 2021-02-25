@@ -2,6 +2,18 @@
    display: none;
   
 }
+.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline.ck-focused h2 {
+   display: none;
+  
+}
+.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline.ck-focused h3 {
+   display: none;
+  
+} 
+.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline.ck-focused h4 {
+   display: none;
+  
+}
 .ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline.ck-focused {
    line-height: 50px;
 }
