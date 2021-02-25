@@ -8,6 +8,7 @@ import { auth, db } from '../firebase'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import './Config.css'
+import { Send } from '@material-ui/icons'
 
 const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
 
@@ -66,7 +67,7 @@ const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
                 */}
 
 
-               <Button variant='info' className='mt-1' type='submit' onClick={TheMessage}>Send Message</Button>
+               <Button variant='info' className='mt-1' type='submit' onClick={TheMessage}><Send></Send></Button>
             </form>
          </TextAreateSection>
       </>
