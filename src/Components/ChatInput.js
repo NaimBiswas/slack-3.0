@@ -67,7 +67,7 @@ const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
                 */}
 
 
-               <Button variant='info' className='mt-1' type='submit' onClick={TheMessage}><Send></Send></Button>
+               <Button variant='info' className='mt-1 pr-4 pl-4' type='submit' onClick={TheMessage}><Send></Send></Button>
             </form>
          </TextAreateSection>
       </>
