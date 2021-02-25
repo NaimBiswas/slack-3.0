@@ -97,6 +97,7 @@ const HeaderComponent = styled.div`
    color:white;
    justify-content: space-around;
    display: flex;
+   transition:1s;
    
 `
 const HeaderLeft = styled.div``

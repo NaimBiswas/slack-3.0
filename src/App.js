@@ -24,7 +24,7 @@ function App() {
 
    }, [Loading])
    return (
-      <div style={{ minHeight: "100vh" }} className={`App ${Dark ? 'DarkMode' : 'LightMode'}`}>
+      <div style={{ minHeight: "100vh", transition: '1s' }} className={`App ${Dark ? 'DarkMode' : 'LightMode'}`}>
          {!Loading ? <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }} className="">
             <ClimbingBoxLoader color={'#FF9E00'} loading={true} size={15} />
          </div> :

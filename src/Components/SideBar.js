@@ -108,7 +108,7 @@ const HeaderTopRight = styled.div`
 const LeftSideBar = styled.div`
 min-height:100vh;
 background-color:var(--slack-color);
-
+transition:1s;
 max-width:15vw;
 position:absolute;
 top:0;

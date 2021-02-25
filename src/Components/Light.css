@@ -1,17 +1,23 @@
 .LightHeader{
       background-color:#076873!important;
       box-shadow: 3px 3px 11px 0px black;
+      transition: 1s;
    }
    .DarkMode{
       background: #2A333F!important;
+      transition: 1s;
    }
+
    .LightMode{
       background: #033540!important;
+      transition: 1s;
    }
    .LightHover:hover{
-      background-color:#07687359!important;
+     background-color:#07687359!important;
+      transition: 1s; 
    }
    .LightHeaderSearch{
       background-color:#033540!important;
-     
+      transition: 1s;
+      
    }
