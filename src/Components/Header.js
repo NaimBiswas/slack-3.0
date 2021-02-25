@@ -28,7 +28,7 @@ const Header = ({ Dark, setDark }) => {
                   <HeaderRightHelp titleAccess='Help' />
                </div>
             </HeaderMiddle>
-            <HeaderRight className=''>
+            <HeaderRight style={{ marginRight: "-20px" }} className=''>
                <HeaderRightAvatar
                   src={user?.photoURL}
                   alt={user?.displayNAME}
