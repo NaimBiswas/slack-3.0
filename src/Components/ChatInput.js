@@ -49,14 +49,16 @@ const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
       const data = editor.getData()
 
       setMessage(data)
+
    }
    return (
       <>
 
 
          <TextAreateSection>
+            <h3 className='text-light'>{`Enter Your Messages on  ${ChannelName ? ChannelName : ''}`} </h3>
             <form action="">
-               <CKEditor data={`Enter Your Messages from  ${ChannelName ? ChannelName : ''}`} Placeholder='Enter YOur Message' editor={ClassicEditor} onChange={INputCheck} />
+               <CKEditor Placeholder='Enter YOur Message' editor={ClassicEditor} onChange={INputCheck} />
 
 
 

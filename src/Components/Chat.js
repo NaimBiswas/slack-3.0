@@ -85,6 +85,7 @@ const SpinnerARea = styled.div`
     align-items: center;
     justify-content: center;
     min-height: 50vh;
+    
 `
 const MessageRightSide = styled.div`
 >h4{
@@ -107,6 +108,16 @@ const MessageRightSide = styled.div`
     width: 100%;
     
    }
+   >p table{
+          color: #fff;
+    font-size: 17px;
+    margin-top: 5px;
+    border: 1px solid;
+   }
+   >p table td{
+        
+    border: 1px solid;
+   }
 `
 const MessageBody = styled.div`
     display: flex;
@@ -124,12 +135,16 @@ const MessageBody = styled.div`
     margin-left: 10px;
     
     }
+    :hover{
+ background:#0f1a1e;
+}
 
 `
 const ShowMessages = styled.div` 
 
 `
 const ChatMessages = styled.div` 
+
 `
 const Header = styled.div`
    color:#F2E2CE;
@@ -157,7 +172,7 @@ const ChatContainer = styled.div`
    scroll-behavior: smooth;
     overflow-y: scroll;
     overflow-x: hidden;
-    max-height: 80vh;
+    max-height: 65vh;
     padding-bottom:70px;
     ::-webkit-scrollbar{
    width:7px;
