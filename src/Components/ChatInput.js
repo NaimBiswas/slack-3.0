@@ -19,9 +19,9 @@ const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
    const [showDisplay, setshowDisplay] = useState(false)
    const onEmojiClick = (event, emojiObject) => {
       setChosenEmoji(emojiObject);
-
+      setMessage(chosenEmoji?.emoji)
    };
-
+   console.log(Message);
    const ChangeIfHaveMessage = (e) => {
       if (e.target.value !== null) {
          setMessage(e.target.value)
@@ -58,12 +58,12 @@ const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
    }
    return (
       <>
-
+         {/* ${chosenEmoji ? chosenEmoji.emoji : '' && "Hello World"} Message && chosenEmoji.emoji */}
          {/* data={` ${chosenEmoji ? chosenEmoji?.emoji?.map(emojis => emojis) : ''}`} */}
          <TextAreateSection>
             <h6 className='text-light'>{`Enter Your Messages on  ${ChannelName ? ChannelName : ''}`} </h6>
             <form style={{ position: 'relative' }} action="">
-               <CKEditor data={` ${chosenEmoji ? chosenEmoji.emoji : ''}`} editor={ClassicEditor} onChange={INputCheck} />
+               <CKEditor data={Message} editor={ClassicEditor} onChange={INputCheck} />
 
                <div style={{ position: 'absolute', top: '0', right: '0' }} className="">
                   <Button className="btn btn-info " onClick={() => setshowDisplay(preMode => !preMode)}>
