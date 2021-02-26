@@ -81,8 +81,9 @@ const HeaderTopLeft = styled.div`
     font-size: 15px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
     margin-bottom:0;
+        font-family: initial;
+    letter-spacing: .5px;
 }
 >span{
     color: #F2E2CE;
