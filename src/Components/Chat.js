@@ -56,7 +56,11 @@ const Chat = ({ Dark }) => {
                         const { message, timestamp, user, userImage } = doc.data();
                         return (
                            <div>
-                              <MessageBody onClick={() => db.collection("rooms").doc(RoomId).collection("messages").doc(doc.id).delete().then(alert("Are You want to delete message"))} className={Dark ? '' : 'LightHover'}>
+
+                              <MessageBody
+                                 title="Delete Message" onClick={() => db.collection("rooms").doc(RoomId).collection("messages").doc(doc.id).delete().then(alert("Are You want to delete message"))}
+                                 className={`ShowHiddenDeleteMessage ${Dark ? '' : 'LightHover'}`}
+                              >
                                  <img className='img-thumbnail' src={userImage} alt="" />
                                  <MessageRightSide ref={ChatRef} className="">
                                     <h4 className=''>
@@ -64,7 +68,7 @@ const Chat = ({ Dark }) => {
                                     </h4>
                                     <p dangerouslySetInnerHTML={{ __html: message }}></p>
                                  </MessageRightSide>
-
+                                 <div className="text-white showDeleteMessage">Click Anywhere to <strong>DEELETE</strong> Message</div>
                               </MessageBody>
                            </div>
                         )
@@ -137,6 +141,7 @@ const MessageBody = styled.div`
   cursor: pointer;
     margin-left: 16px;
     padding: 17px 0;
+    position: relative; 
     >img{
        height: 60px;
     width: auto;
@@ -148,8 +153,10 @@ const MessageBody = styled.div`
  background:#0f1a1e;
 }
 
+
 `
-const ShowMessages = styled.div` 
+const ShowMessages = styled.div`
+
 
 `
 const ChatMessages = styled.div` 
