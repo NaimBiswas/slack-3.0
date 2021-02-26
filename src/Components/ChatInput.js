@@ -7,7 +7,7 @@ import styled from 'styled-components'
 import { auth, db } from '../firebase'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import './Config.css'
+import './Light.css'
 import { EmojiEmotions, Send } from '@material-ui/icons'
 import Picker from 'emoji-picker-react';
 
@@ -19,7 +19,7 @@ const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
    const [showDisplay, setshowDisplay] = useState(false)
    const onEmojiClick = (event, emojiObject) => {
       setChosenEmoji(emojiObject);
-      setMessage(chosenEmoji?.emoji)
+      setshowDisplay(false)
    };
    console.log(Message);
    const ChangeIfHaveMessage = (e) => {
@@ -55,6 +55,7 @@ const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
 
       const data = editor.getData()
       setMessage(data)
+
    }
    return (
       <>
@@ -63,7 +64,7 @@ const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
          <TextAreateSection>
             <h6 className='text-light'>{`Enter Your Messages on  ${ChannelName ? ChannelName : ''}`} </h6>
             <form style={{ position: 'relative' }} action="">
-               <CKEditor data={Message} editor={ClassicEditor} onChange={INputCheck} />
+               <CKEditor data={chosenEmoji && chosenEmoji?.emoji} editor={ClassicEditor} onChange={INputCheck} />
 
                <div style={{ position: 'absolute', top: '0', right: '0' }} className="">
                   <Button className="btn btn-info " onClick={() => setshowDisplay(preMode => !preMode)}>
@@ -76,10 +77,6 @@ const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
                   {
                      showDisplay ? <div>
                         <Picker native onEmojiClick={onEmojiClick}
-
-
-
-
 
                         />
                      </div> : ''
