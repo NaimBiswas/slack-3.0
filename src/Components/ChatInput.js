@@ -17,7 +17,6 @@ const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
    const [user] = useAuthState(auth)
    const [chosenEmoji, setChosenEmoji] = useState()
    const [showDisplay, setshowDisplay] = useState(false)
-
    const onEmojiClick = (event, emojiObject) => {
       setChosenEmoji(emojiObject);
 
