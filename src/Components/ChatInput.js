@@ -9,11 +9,23 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import './Config.css'
 import { Send } from '@material-ui/icons'
+import Picker from 'emoji-picker-react';
 
 const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
 
    const [Message, setMessage] = useState()
    const [user] = useAuthState(auth)
+   const [chosenEmoji, setChosenEmoji] = useState(null);
+   const [showDisplay, setshowDisplay] = useState(false)
+
+   const onEmojiClick = (event, emojiObject) => {
+      setChosenEmoji(emojiObject);
+      setshowDisplay(false)
+   };
+   // const SetEmoji = () => {
+   //    setshowDisplay(true)
+   // }
+
 
    const ChangeIfHaveMessage = (e) => {
       if (e.target.value !== null) {
@@ -57,16 +69,16 @@ const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
 
          <TextAreateSection>
             <h6 className='text-light'>{`Enter Your Messages on  ${ChannelName ? ChannelName : ''}`} </h6>
-            <form action="">
-               <CKEditor Placeholder='Enter YOur Message' editor={ClassicEditor} onChange={INputCheck} />
-
-
-
-               {/* <input
-                  placeholder={`Enter Your Messages from  ${ChannelName ? ChannelName : ''}`} id={ChannelId}
-
-                  required value={Message} onChange={ChangeIfHaveMessage} className='form-control' name="" />
-                */}
+            <form style={{ position: 'relative' }} action="">
+               <CKEditor data={` ${chosenEmoji ? chosenEmoji.emoji : ''}`} editor={ClassicEditor} onChange={INputCheck} />
+               <div style={{ position: 'absolute', top: '0', right: '0' }} className=""><Button onClick={() => setshowDisplay(preMode => !preMode)}>Emoji</Button></div>
+               <div className="emoji">
+                  {
+                     showDisplay ? <div>
+                        <Picker onEmojiClick={onEmojiClick} />
+                     </div> : ''
+                  }
+               </div>
 
 
                <Button variant='info' className='mt-1 pr-4 pl-4' type='submit' onClick={TheMessage}><Send></Send></Button>
