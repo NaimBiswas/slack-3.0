@@ -80,10 +80,10 @@ const HeaderTopLeft = styled.div`
 >h5{
     font-size: 15px;
     font-weight: 700;
-    text-transform: uppercase;
     margin-bottom:0;
         font-family: initial;
     letter-spacing: .5px;
+    text-transform: capitalize;
 }
 >span{
     color: #F2E2CE;
