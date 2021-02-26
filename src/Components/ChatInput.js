@@ -15,12 +15,12 @@ const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
 
    const [Message, setMessage] = useState()
    const [user] = useAuthState(auth)
-   const [chosenEmoji, setChosenEmoji] = useState(null);
+   const [chosenEmoji, setChosenEmoji] = useState()
    const [showDisplay, setshowDisplay] = useState(false)
 
    const onEmojiClick = (event, emojiObject) => {
       setChosenEmoji(emojiObject);
-      setshowDisplay(false)
+
    };
    // const SetEmoji = () => {
    //    setshowDisplay(true)
@@ -66,7 +66,7 @@ const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
    return (
       <>
 
-
+         {/* data={` ${chosenEmoji ? chosenEmoji?.emoji?.map(emojis => emojis) : ''}`} */}
          <TextAreateSection>
             <h6 className='text-light'>{`Enter Your Messages on  ${ChannelName ? ChannelName : ''}`} </h6>
             <form style={{ position: 'relative' }} action="">
@@ -75,7 +75,13 @@ const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
                <div style={{ position: 'absolute', bottom: "46px", right: '50px' }} className="emoji">
                   {
                      showDisplay ? <div>
-                        <Picker onEmojiClick={onEmojiClick} />
+                        <Picker native onEmojiClick={onEmojiClick}
+
+
+
+
+
+                        />
                      </div> : ''
                   }
                </div>
