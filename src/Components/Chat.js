@@ -1,18 +1,20 @@
 import { InfoOutlined, StarBorderOutlined } from '@material-ui/icons'
 import React, { useEffect, useRef } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { selectRoomId } from '../features/appSlice'
 import { db } from '../firebase'
 import ChatInput from './ChatInput'
 import { useCollection, useDocument } from 'react-firebase-hooks/firestore'
 import { Spinner } from 'react-bootstrap'
+import { messageIDS } from '../features/messageSlicer'
 const Chat = ({ Dark }) => {
    const ChatRef = useRef(null)
    const RoomId = useSelector(selectRoomId)
    const [roomDetails] = useDocument(
       RoomId && db.collection('rooms').doc(RoomId)
    )
+   const dispatch = useDispatch()
    const [roomMessages, loading] = useCollection(RoomId && db.collection("rooms").doc(RoomId).collection('messages').orderBy('timestamp', 'asc'))
 
    useEffect(() => {
@@ -20,7 +22,14 @@ const Chat = ({ Dark }) => {
          behavior: "smooth",
       })
    }, [RoomId, loading])
-
+   const DeleteMessage = () => {
+      // db.collection('rooms')
+      //    .doc(RoomId)
+      //    .collection('messages')
+      //    .doc()
+      //    .delete()
+      //    .then(res => alert("Hello"))
+   }
    return (
       <>
          {roomDetails && RoomId && (
@@ -43,11 +52,11 @@ const Chat = ({ Dark }) => {
                            <span className="sr-only">Loading...</span>
                         </Spinner>
                      </SpinnerARea> :
-                     roomMessages?.docs.map((doc) => {
+                     roomMessages?.docs.map((doc, index) => {
                         const { message, timestamp, user, userImage } = doc.data();
                         return (
-                           <>
-                              <MessageBody className={Dark ? '' : 'LightHover'}>
+                           <div>
+                              <MessageBody onClick={() => db.collection("rooms").doc(RoomId).collection("messages").doc(doc.id).delete().then(alert("Are You want to delete message"))} className={Dark ? '' : 'LightHover'}>
                                  <img className='img-thumbnail' src={userImage} alt="" />
                                  <MessageRightSide ref={ChatRef} className="">
                                     <h4 className=''>
@@ -57,7 +66,7 @@ const Chat = ({ Dark }) => {
                                  </MessageRightSide>
 
                               </MessageBody>
-                           </>
+                           </div>
                         )
                      })
 
@@ -125,7 +134,7 @@ const MessageBody = styled.div`
     padding: 17px;
     border-bottom: 1px solid #f2e2ce63;
     width: 97%;
-  
+  cursor: pointer;
     margin-left: 16px;
     padding: 17px 0;
     >img{
