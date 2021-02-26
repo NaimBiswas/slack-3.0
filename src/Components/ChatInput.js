@@ -22,10 +22,6 @@ const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
       setChosenEmoji(emojiObject);
 
    };
-   // const SetEmoji = () => {
-   //    setshowDisplay(true)
-   // }
-
 
    const ChangeIfHaveMessage = (e) => {
       if (e.target.value !== null) {
@@ -59,9 +55,7 @@ const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
    const INputCheck = (e, editor) => {
 
       const data = editor.getData()
-
       setMessage(data)
-
    }
    return (
       <>
@@ -71,7 +65,14 @@ const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
             <h6 className='text-light'>{`Enter Your Messages on  ${ChannelName ? ChannelName : ''}`} </h6>
             <form style={{ position: 'relative' }} action="">
                <CKEditor data={` ${chosenEmoji ? chosenEmoji.emoji : ''}`} editor={ClassicEditor} onChange={INputCheck} />
-               <div style={{ position: 'absolute', top: '0', right: '0' }} className=""><Button className="btn btn-info " onClick={() => setshowDisplay(preMode => !preMode)}><EmojiEmotions /></Button></div>
+
+               <div style={{ position: 'absolute', top: '0', right: '0' }} className="">
+                  <Button className="btn btn-info " onClick={() => setshowDisplay(preMode => !preMode)}>
+                     <EmojiEmotions />
+                  </Button>
+               </div>
+
+
                <div style={{ position: 'absolute', bottom: "46px", right: '50px' }} className="emoji">
                   {
                      showDisplay ? <div>
