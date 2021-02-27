@@ -9,6 +9,10 @@ import { useCollection, useDocument } from 'react-firebase-hooks/firestore'
 import { Spinner } from 'react-bootstrap'
 import Alert from 'react-bootstrap/Alert'
 import { messageIDS } from '../features/messageSlicer'
+import Data from './Data.svg'
+
+
+
 const Chat = ({ Dark }) => {
    const [SHowNofi, setSHowNofi] = useState(false)
    const ChatRef = useRef(null)
@@ -75,7 +79,7 @@ const Chat = ({ Dark }) => {
                   }
                   {
                      roomMessages?.docs == 0 && <h3 className='text-danger' style={{ display: 'flex', minHeight: '50vh', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                        <img src="https://img.icons8.com/plasticine/100/000000/error-cloud.png" />
+                        <img style={{ height: '200px', marginBottom: '-44px', width: 'auto' }} src={Data} alt="" />
                         No Data Found!</h3>
                   }
                </ShowMessages>
