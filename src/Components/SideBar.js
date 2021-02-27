@@ -1,5 +1,5 @@
 import { Add, Apps, Drafts, EditRounded, ExpandLess, ExpandMore, FileCopy, InsertCommentTwoTone, PeopleAlt } from '@material-ui/icons'
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import SideBarOption from './SideBarOption';
@@ -11,11 +11,12 @@ import { useCollection } from 'react-firebase-hooks/firestore';
 import firebase from 'firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import './Light.css'
+import { NavDropdown } from 'react-bootstrap';
 const SideBar = ({ Dark, }) => {
    const [Channels, loading, error] = useCollection(
       firebase.firestore().collection('rooms'))
    const [user] = useAuthState(auth)
-
+   const [HideDrop, setHideDrop] = useState(true)
    return (
       <>
          <LeftSideBar className={`pl-1 pr-1 ${Dark ? '' : 'LightHeader'}`}>
@@ -42,12 +43,21 @@ const SideBar = ({ Dark, }) => {
                <hr style={{ margin: '0', borderTop: '1px solid #333333', marginRight: '-4px' }} />
 
                <SideBarOption addChannelOption Icon={Add} Title='Add Channel' />
+
+
                {
                   Channels?.docs.map((doc) => (
+
                      <SideBarOption key={doc.id} id={doc.id} Title={doc.data().name} />
+
 
                   ))
                }
+
+
+
+
+
             </SideBaroption>
          </LeftSideBar>
       </>

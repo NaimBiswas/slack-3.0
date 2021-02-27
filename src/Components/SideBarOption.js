@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { enterRoom, selectRoomId } from '../features/appSlice';
 import './Test.css'
 
-const SideBarOption = ({ Icon, Title, addChannelOption, id }) => {
+const SideBarOption = ({ Icon, Title, addChannelOption, id, }) => {
    const dispatch = useDispatch()
    const roomId = useSelector(selectRoomId)
    const addChannel = () => {
@@ -33,6 +33,7 @@ const SideBarOption = ({ Icon, Title, addChannelOption, id }) => {
                {
                   Icon ? Title : <div className=""> <VisibilityIcon style={{ color: '#F5FCDC' }} className='mr-2' fontSize='small' /> {Title}</div>
                }
+
             </p>
          </SideBarContainer>
       </>

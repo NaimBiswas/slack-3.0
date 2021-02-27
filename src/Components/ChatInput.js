@@ -21,7 +21,6 @@ const ChatInput = ({ ChannelId, ChannelName, ChatRef }) => {
       setChosenEmoji(emojiObject);
       setshowDisplay(false)
    };
-   console.log(Message);
    const ChangeIfHaveMessage = (e) => {
       if (e.target.value !== null) {
          setMessage(e.target.value)

@@ -1,5 +1,5 @@
 import { InfoOutlined, StarBorderOutlined } from '@material-ui/icons'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { selectRoomId } from '../features/appSlice'
@@ -7,8 +7,10 @@ import { db } from '../firebase'
 import ChatInput from './ChatInput'
 import { useCollection, useDocument } from 'react-firebase-hooks/firestore'
 import { Spinner } from 'react-bootstrap'
+import Alert from 'react-bootstrap/Alert'
 import { messageIDS } from '../features/messageSlicer'
 const Chat = ({ Dark }) => {
+   const [SHowNofi, setSHowNofi] = useState(false)
    const ChatRef = useRef(null)
    const RoomId = useSelector(selectRoomId)
    const [roomDetails] = useDocument(
@@ -22,16 +24,11 @@ const Chat = ({ Dark }) => {
          behavior: "smooth",
       })
    }, [RoomId, loading])
-   const DeleteMessage = () => {
-      // db.collection('rooms')
-      //    .doc(RoomId)
-      //    .collection('messages')
-      //    .doc()
-      //    .delete()
-      //    .then(res => alert("Hello"))
-   }
+
+
    return (
       <>
+
          {roomDetails && RoomId && (
             <ChatContainer>
                <Header>
@@ -45,6 +42,7 @@ const Chat = ({ Dark }) => {
                   </p>
                   </HeaderRight>
                </Header>
+
                <ShowMessages >
                   {!roomMessages ?
                      <SpinnerARea>
@@ -58,7 +56,7 @@ const Chat = ({ Dark }) => {
                            <div>
 
                               <MessageBody
-                                 title="Delete Message" onClick={() => db.collection("rooms").doc(RoomId).collection("messages").doc(doc.id).delete().then(alert("Are You want to delete message"))}
+                                 title="Delete Message" onClick={() => db.collection("rooms").doc(RoomId).collection("messages").doc(doc.id).delete().then(() => setSHowNofi(true))}
                                  className={`ShowHiddenDeleteMessage ${Dark ? '' : 'LightHover'}`}
                               >
                                  <img className='img-thumbnail' src={userImage} alt="" />
@@ -76,7 +74,9 @@ const Chat = ({ Dark }) => {
 
                   }
                   {
-                     roomMessages?.docs == 0 && <h3 className='text-danger' style={{ display: 'flex', minHeight: '50vh', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>No Data Found!</h3>
+                     roomMessages?.docs == 0 && <h3 className='text-danger' style={{ display: 'flex', minHeight: '50vh', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                        <img src="https://img.icons8.com/plasticine/100/000000/error-cloud.png" />
+                        No Data Found!</h3>
                   }
                </ShowMessages>
 
@@ -86,7 +86,8 @@ const Chat = ({ Dark }) => {
 
             </ChatContainer >
 
-         )}
+         )
+         }
       </>
    )
 }
